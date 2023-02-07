@@ -1,14 +1,21 @@
 <template>
-    <div>hola</div>
+    <div>{{ text }}</div>
+    <div>{{ counter }}</div>
+
 </template>
 
 <script>
-import { onMounted } from "vue"
+import { ref } from "vue"
 export default {
     setup() {
-        onMounted(() => {
-            console.log("mounted");
-        });
+        const text = ref("new class");
+        const counter = ref(0);
+        setInterval(() => counter.value++, 500);
+
+        return {
+            text,
+            counter,
+        }
     },
     }
 </script>
